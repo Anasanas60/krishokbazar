@@ -1,0 +1,70 @@
+:root{
+  /* Typography */
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  /* Material 3 color roles (light) - greens focused */
+  --md-sys-primary: #2e7d32; /* green 600 */
+  --md-sys-on-primary: #ffffff;
+  --md-sys-primary-container: #b9f6ca;
+  --md-sys-on-primary-container: #00220b;
+
+  --md-sys-secondary: #4caf50;
+  --md-sys-background: #fcfffb;
+  --md-sys-surface: #ffffff;
+  --md-sys-on-surface: #1b1b1b;
+
+  /* Elevation / shadows */
+  --elevation-1: 0 1px 2px rgba(16,24,40,0.04), 0 1px 3px rgba(16,24,40,0.06);
+  --elevation-2: 0 6px 16px rgba(16,24,40,0.08);
+
+  /* Motion */
+  --motion-duration: 200ms;
+  --motion-ease: cubic-bezier(.2,.8,.2,1);
+}
+
+/* Dark theme tokens */
+@media (prefers-color-scheme: dark){
+  :root{
+    --md-sys-primary: #81c784;
+    --md-sys-on-primary: #0b2b0c;
+    --md-sys-primary-container: #103214;
+    --md-sys-background: #0b1410;
+    --md-sys-surface: rgba(255,255,255,0.03);
+    --md-sys-on-surface: #e6efe6;
+  }
+}
+
+/* Utility classes for cards and rounded pills */
+.m3-card{
+  background: linear-gradient(180deg, var(--md-sys-surface), color-mix(in srgb, var(--md-sys-surface) 90%, transparent));
+  border-radius: var(--radius-md);
+  box-shadow: var(--elevation-1);
+  transition: transform var(--motion-duration) var(--motion-ease), box-shadow var(--motion-duration) var(--motion-ease);
+}
+.m3-card:hover{ transform: translateY(-4px); box-shadow: var(--elevation-2);} 
+
+.m3-pill{
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(90deg, var(--md-sys-primary), var(--md-sys-primary-container));
+  color: var(--md-sys-on-primary);
+}
+
+.m3-btn-floating{
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(180deg, var(--md-sys-primary), color-mix(in srgb, var(--md-sys-primary) 85%, black 5%));
+  color: var(--md-sys-on-primary);
+  box-shadow: 0 8px 20px rgba(46,125,50,0.18);
+}
+
+/* accessible focus outline */
+:focus{ outline: 3px solid color-mix(in srgb, var(--md-sys-primary) 40%, transparent); outline-offset: 2px; }
+
+/* Smooth general transitions */
+*{ transition: background-color var(--motion-duration) var(--motion-ease), color var(--motion-duration) var(--motion-ease), transform var(--motion-duration) var(--motion-ease); }
+
+body{ font-family: var(--font-sans); background: var(--md-sys-background); color: var(--md-sys-on-surface); }

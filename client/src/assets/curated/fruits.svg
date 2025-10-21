@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+  <rect width="100%" height="100%" fill="#FFF3E0" />
+  <g transform="translate(140,90) scale(1.6)">
+    <circle cx="60" cy="120" r="40" fill="#FF7043" />
+    <circle cx="140" cy="90" r="30" fill="#FFB74D" />
+    <ellipse cx="240" cy="120" rx="50" ry="30" fill="#FF8A65" />
+  </g>
+</svg>
