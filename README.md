@@ -1,173 +1,140 @@
-**KrishokBazar** is a full-stack web application to bridge the gap between farmers and consumers. It enables farmers to showcase their produce, connect with buyers, and build trust — all in one platform.
+# KrishokBazar
 
+<p align="center">
+  <img src="./client/public/logo.png" alt="KrishokBazar Logo" width="120">
+</p>
 
----
+<h3 align="center">A Farm-to-Table Marketplace</h3>
 
-## ❗ The Problem (That Needs to Be Solved)
-
-Farmers in many regions face major hurdles:
-
-- ❌ Limited or no digital presence
-- ❌ Dependence on middlemen who reduce their profit margins
-- ❌ Lack of direct connection and trust with consumers
-- ❌ No centralized online platform to market their goods
+**KrishokBazar** is a full-stack web application designed to bridge the gap between local farmers and consumers. It provides a digital platform where farmers can showcase their produce, and consumers can purchase fresh, sustainable goods directly from the source.
 
 ---
 
-## ✅ Our Developed Solution
+## ✨ Features
 
-**KrishokBazar** directly addresses these issues by offering:
+- **Role-Based Access Control:** Separate experiences for Admins, Farmers, and Consumers.
+- **Farmer Profiles:** Farmers can create and manage their profiles, showcasing their farm and products.
+- **Product Listings:** Farmers can list, update, and manage their available produce.
+- **Consumer Dashboard:** Consumers can browse products by category, search for specific items, and view farmer profiles.
+- **Direct Messaging:** Enables real-time communication between farmers and consumers to build trust and coordinate.
+- **Secure Ordering:** A straightforward and secure system for consumers to place orders.
+- **Admin Panel:** A comprehensive dashboard for administrators to manage users, products, categories, and orders.
 
-- 🌾 **Farmer Profiles** — Showcase farm products, locations, and background
-- 🛒 **Consumer Dashboard** — Browse goods by category, farm
-- 📬 **Messaging System** — Enables real-time communication between farmers and consumers
-- 📦 **Order Requests** — Simple, secure order placement
-- ⚙️ **Admin Panel** — Manage users, listings, categories
-- 📈 **Trust Building** — Transparent and localized digital marketplace
+## 🛠️ Tech Stack
 
----
+| Category      | Technology                                      |
+|---------------|-------------------------------------------------|
+| **Frontend**  | React, Redux Toolkit, React Router, Tailwind CSS, Vite |
+| **Backend**   | Node.js, Express.js, Sequelize ORM              |
+| **Database**  | SQLite3                                         |
+| **Security**  | JWT (JSON Web Tokens) for authentication        |
 
-## Technologies Used
+## 🚀 Getting Started
 
-- **Frontend:** React JS, Tailwind CSS, React Redux
-- **Backend:** Node JS, Express JS
-- **Database:** MongoDB
-- **Security:** JWT (JSON Web Token)
-- **Hosting:** Vercel
-
----
-
-## 🧩 Features Overview
-
-| Role       | Features                                                                          |
-|------------|-----------------------------------------------------------------------------------|
-| 👨‍🌾 Farmer  | Register, login, create profile, list products, manage products, view & reply to messages  |
-| 🛒 Consumer | Browse listings, search by category, message farmers, request orders               |
-| 🛠️ Admin   | Manage users, products, order requests, and categories via dashboard              |
-| 🔐 Auth    | Role-based access control                                                         |
-
----
-
-## Getting Started
+Follow these instructions to get the project up and running on your local machine.
 
 ### Prerequisites
 
-- Node.js and npm installed
-- VS Code or any other code editor
-- Git (optional, for cloning the repository)
+- [Node.js](https://nodejs.org/en/) (v18 or later)
+- npm (comes with Node.js)
 
-### File Structures
+### 1. Clone the Repository
 
-```plaintext
-client/
-├── public/
-│   └── logo.png                       # Logo file
-├── src/
-│   ├── assets/                        # Images and other assets
-│   ├── components/                    # Reusable UI components
-│   ├── pages/                         # Pages
-│   ├── redux/                         # State management
-│   ├── App.jsx                        # React Router setup
-│   └── main.jsx                       # Application entry point
-├── .env                               # Environment variables
-└── index.html                         # Root HTML file
+```bash
+git clone https://github.com/yourusername/krishokbazar.git
+cd krishokbazar
 ```
 
-```plaintext
-api/
-├── controllers/                       # Core logic
-├── db/                                # Database connection
-├── models/                            # Data schemas
-├── routes/                            # API routes
-├── utils/                             # Helper functions
-├── .env                               # Environment variables
-└── index.js                           # Main server file
+### 2. Set Up the Backend (API)
+
+Navigate to the API directory and install the dependencies.
+
+```bash
+cd api
+npm install
 ```
 
-### Setup Instructions
+Create a `.env` file in the `api` directory and add the following variables. For the default SQLite setup, no changes are needed.
 
-1. **Clone the Repository**
+```env
+# .env for api
 
-   ```bash
-   git clone https://github.com/yourusername/krishokbazar.git
-   ```
+# Server Port
+PORT=5000
 
-   `Unzip the File`
+# JWT Configuration
+JWT_SECRET=your_super_secret_jwt_key
+JWT_EXPIRE=90d
 
-2. **Open with VS Code**
+# Database (Defaults to SQLite)
+# DB_DIALECT=sqlite
+# DB_STORAGE=./db/krishokbazar.sqlite
 
-   Open the project directory with VS Code or your preferred code editor.
+# Set to true to re-run database migrations (deletes existing data)
+FORCE_SYNC=false
 
-3. **Install Dependencies**
+# Set to true on first run to populate the database with sample data
+SEED_DB=true
+```
 
-    **Frontend:**
+**Important:** On the first run, set `SEED_DB=true` in your `.env` file to populate the database with initial data. You can set it to `false` after the first successful run.
 
-    - Navigate to the frontend directory:
+Now, start the backend server:
 
-    ```bash
-    cd client
-    ```
+```bash
+npm start
+```
 
-    - Create a `.env` file in the backend directory and add the following environment variables:
+The API will be running at `http://localhost:5000`.
 
-    ```env
-    VITE_BACKEND_URL = your_backend_url (http://localhost:5000)
-    ```
+### 3. Set Up the Frontend (Client)
 
-    - Install the dependencies:
+Open a new terminal, navigate to the client directory, and install the dependencies.
 
-    ```bash
-    npm install
-    ```
+```bash
+cd client
+npm install
+```
 
-    - Run the development server:
+Create a `.env` file in the `client` directory and add the backend API URL.
 
-    ```bash
-    npm run dev
-    ```
+```env
+# .env for client
+VITE_API_URL=http://localhost:5000
+```
 
-    **Backend:**
+Now, run the client development server:
 
-    - Navigate to the backend directory:
+```bash
+npm run dev
+```
 
-    ```bash
-    cd api
-    ```
+The application will be available at `http://localhost:5173` (or another port if 5173 is busy).
 
-    - Create a `.env` file in the backend directory and add the following environment variables:
+## 📂 Project Structure
 
-    ```env
-    PORT=5000
-    MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET=your_jwt_secret_key
-    JWT_EXPIRE =your_jwt_expiry (90d)
-    ```
-
-    - Install the dependencies:
-
-    ```bash
-    npm install
-    ```
-
-    - Start the server:
-
-    ```bash
-    npm run dev
-    ```
-
-4. **Update API URLs**
-
-    Ensure that the API URLs in your frontend code are correctly pointing to your local backend server. Update the `VITE_BACKEND_URL` in the `.env` file (as mentioned in the previous step).
-
-5. **Access the Application**
-
-    After everything is set up:
-    - Open your browser and navigate to [http://localhost:5173](http://localhost:5173) to view the application.
-    - Ensure the frontend loads correctly and communicates with the backend server.
-
-## Contact
-
-For any questions, feedback, or collaboration opportunities, feel free to contact us.
+```
+krishokbazar/
+├── api/                # Backend (Node.js/Express)
+│   ├── controllers/    # Request handling logic
+│   ├── db/             # Database connection & SQLite file
+│   ├── models/         # Sequelize data models
+│   ├── routes/         # API endpoint definitions
+│   ├── .env            # Environment variables
+│   └── index.js        # Server entry point
+│
+└── client/             # Frontend (React)
+    ├── public/         # Static assets (logo, etc.)
+    ├── src/
+    │   ├── assets/     # Images, icons
+    │   ├── components/ # Reusable React components
+    │   ├── pages/      # Page-level components
+    │   ├── redux/      # Redux Toolkit state management
+    │   ├── App.jsx     # Main component with routing
+    │   └── main.jsx    # Application entry point
+    ├── .env            # Environment variables
+    └── index.html      # Root HTML file
+```
 
 ---
 
